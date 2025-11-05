@@ -7,8 +7,10 @@
 
 import UIKit
 
-class WelcomeViewController: UIViewController {
+class WelcomeViewController_MVC: UIViewController {
 
+    var id: String = "당근당근"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

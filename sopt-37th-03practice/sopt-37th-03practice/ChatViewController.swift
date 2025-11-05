@@ -8,7 +8,7 @@
 import SnapKit
 import UIKit
 
-class ChatiViewController: UIViewController {
+class ChatViewController: UIViewController {
     
     private var chatRooms: [ChatRoomModel] = []
     
@@ -21,6 +21,7 @@ class ChatiViewController: UIViewController {
         setLayout()
         register()
         setDelegate()
+        loadMockData()
        }
        
        private func setUI() {  // 기본 속성 정의
@@ -53,10 +54,10 @@ class ChatiViewController: UIViewController {
 }
 
 #Preview {
-    ChatiViewController()
+    ChatViewController()
 }
 
-extension ChatiViewController: UITableViewDelegate {
+extension ChatViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("\(chatRooms[indexPath.row].name)")
@@ -67,10 +68,10 @@ extension ChatiViewController: UITableViewDelegate {
     }
 }
 
-extension ChatiViewController: UITableViewDataSource {
+extension ChatViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        chatRooms.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -1,88 +1,125 @@
-//
-//  FeeVIewController.swift
-//  sopt-37th-03practice
-//
-//  Created by JIN on 11/1/25.
-//
-
 import UIKit
+import SnapKit
 
-private let reuseIdentifier = "Cell"
-
-class FeeVIewController: UICollectionViewController {
-
+final class FeedViewController: UIViewController {
+    
+    // MARK: - Properties
+    
+   private var feeds: [FeedModel] = []
+   
+   private let lineSpacing: CGFloat = 10
+   private let itemSpacing: CGFloat = 21
+   private let cellHeight: CGFloat = 198
+   private let collectViewInset: UIEdgeInsets = .init(top: 0, left: 20, bottom: 0, right: 20)
+   
+   
+   // MARK: - UI Components
+   
+   private lazy var collectionView: UICollectionView = {
+       let layout = UICollectionViewFlowLayout()
+       layout.scrollDirection = .vertical // 디폴트가 vertical 입니다~
+       layout.minimumLineSpacing = lineSpacing
+       layout.minimumInteritemSpacing = itemSpacing
+       layout.sectionInset = collectViewInset
+       
+       let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+       collectionView.backgroundColor = .white
+       return collectionView
+   }()
+    
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
+        
+        setUI()
+        setLayout()
+        setDelegate()
+        register()
+        loadMockData()
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    // MARK: UICollectionViewDataSource
-
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 0
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
     
-        // Configure the cell
+    // MARK: - UI & Layout
     
+    private func setUI() {
+        view.backgroundColor = .white
+        title = "피드"
+    }
+    
+    private func setLayout() {
+        view.addSubview(collectionView)
+        
+        collectionView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+    }
+    
+    private func register() {
+        collectionView.register(FeedCollectionViewCell.self, forCellWithReuseIdentifier: FeedCollectionViewCell.identifier)
+    }
+    
+    private func setDelegate() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
+    
+    private func loadMockData() {
+         feeds = FeedModel.mockData
+         collectionView.reloadData()
+     }
+}
+
+// 1. 위 코드 처럼 똑같이 FeedViewController 에서 UICollectionView() 객체 초기화 후
+
+
+// 2. UICollectionViewDelegateFlowLayout 메서드 구현하기
+extension FeedViewController: UICollectionViewDelegateFlowLayout {
+        // item 크기
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let horizontalInset: CGFloat = 20
+        let width = (collectionView.frame.width - (itemSpacing + horizontalInset * 2)) / 2
+        let height: CGFloat = cellHeight
+        return CGSize(width: width, height: height)
+    }
+    
+    // 행간
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return lineSpacing
+    }
+    
+    // item 간
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return itemSpacing
+    }
+    
+    // collectionView inset
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return collectViewInset
+    }
+}
+
+extension FeedViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        feeds.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeedCollectionViewCell.identifier, for: indexPath) as? FeedCollectionViewCell else { return UICollectionViewCell()}
+        cell.configure(feed: feeds[indexPath.item])
+        cell.delegate = self
         return cell
     }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
     
-    }
-    */
+    
+}
 
+extension FeedViewController: FeedCollectionViewCellDelegate {
+    func didTapScrapButton(_ cell: FeedCollectionViewCell) {
+        guard let indexPath = collectionView.indexPath(for: cell) else { return }
+            
+            feeds[indexPath.item].isScrap.toggle() // feed의 값을 변경 시키고
+            cell.scrapButton.isSelected.toggle() // cell에 접근해서 해당 scrap
+    }
+    
+    
 }

@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		1E0A9DAC2EB5C9CB005BAAE7 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1E0A9DAB2EB5C9CB005BAAE7 /* SnapKit */; };
+		1E0A9DAF2EB5C9D9005BAAE7 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 1E0A9DAE2EB5C9D9005BAAE7 /* Then */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		1E0A9D762EB52610005BAAE7 /* sopt-37th-03practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sopt-37th-03practice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +41,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E0A9DAC2EB5C9CB005BAAE7 /* SnapKit in Frameworks */,
+				1E0A9DAF2EB5C9D9005BAAE7 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +85,8 @@
 			);
 			name = "sopt-37th-03practice";
 			packageProductDependencies = (
+				1E0A9DAB2EB5C9CB005BAAE7 /* SnapKit */,
+				1E0A9DAE2EB5C9D9005BAAE7 /* Then */,
 			);
 			productName = "sopt-37th-03practice";
 			productReference = 1E0A9D762EB52610005BAAE7 /* sopt-37th-03practice.app */;
@@ -107,6 +116,10 @@
 			);
 			mainGroup = 1E0A9D6D2EB52610005BAAE7;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				1E0A9DAA2EB5C9CB005BAAE7 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				1E0A9DAD2EB5C9D9005BAAE7 /* XCRemoteSwiftPackageReference "Then" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 1E0A9D772EB52610005BAAE7 /* Products */;
 			projectDirPath = "";
@@ -150,7 +163,6 @@
 				INFOPLIST_FILE = "sopt-37th-03practice/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -182,7 +194,6 @@
 				INFOPLIST_FILE = "sopt-37th-03practice/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -345,6 +356,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1E0A9DAA2EB5C9CB005BAAE7 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		1E0A9DAD2EB5C9D9005BAAE7 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1E0A9DAB2EB5C9CB005BAAE7 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1E0A9DAA2EB5C9CB005BAAE7 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		1E0A9DAE2EB5C9D9005BAAE7 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1E0A9DAD2EB5C9D9005BAAE7 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1E0A9D6E2EB52610005BAAE7 /* Project object */;
 }

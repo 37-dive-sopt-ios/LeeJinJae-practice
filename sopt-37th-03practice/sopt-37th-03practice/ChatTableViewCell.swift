@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class ChatiTableViewCell: UITableViewCell {
+class ChatTableViewCell: UITableViewCell {
     
     static let identifier: String = "ChatTableViewCell"
     
@@ -58,8 +58,10 @@ class ChatiTableViewCell: UITableViewCell {
 
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setUI()
+        setHierarchy()
+        setLayout()
     }
     
     
@@ -111,6 +113,16 @@ class ChatiTableViewCell: UITableViewCell {
     
 }
 
+extension ChatTableViewCell {
+    func configure(chatRoom: ChatRoomModel) {
+        profileImageView.image = chatRoom.profileImage
+        nameLabel.text = chatRoom.name
+        locationLabel.text = chatRoom.location
+        messageLabel.text = chatRoom.lastMessage
+        thumbnailImageView.image = chatRoom.thumbnail
+    }
+}
+
 #Preview {
-    ChatiTableViewCell()
+    ChatTableViewCell()
 }
