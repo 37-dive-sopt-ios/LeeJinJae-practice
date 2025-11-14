@@ -1,0 +1,19 @@
+//
+//  ViewController.swift
+//  sopt-37th-practice04
+//
+//  Created by JIN on 11/8/25.
+//
+
+import UIKit
+
+class ViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+    }
+
+
+}
+

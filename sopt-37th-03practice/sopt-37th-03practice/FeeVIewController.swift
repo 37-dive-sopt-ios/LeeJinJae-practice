@@ -17,7 +17,7 @@ final class FeedViewController: UIViewController {
    
    private lazy var collectionView: UICollectionView = {
        let layout = UICollectionViewFlowLayout()
-       layout.scrollDirection = .vertical // 디폴트가 vertical 입니다~
+       layout.scrollDirection = .horizontal // 디폴트가 vertical 입니다~
        layout.minimumLineSpacing = lineSpacing
        layout.minimumInteritemSpacing = itemSpacing
        layout.sectionInset = collectViewInset
@@ -49,8 +49,10 @@ final class FeedViewController: UIViewController {
     private func setLayout() {
         view.addSubview(collectionView)
         
-        collectionView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+        collectionView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.width.equalTo(400)            // 가운데 배치
+            make.height.equalTo(300)                        // 고정 높이
         }
     }
     
