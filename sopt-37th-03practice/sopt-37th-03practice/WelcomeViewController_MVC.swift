@@ -1,0 +1,31 @@
+//
+//  WelcomeViewController.swift
+//  sopt-37th-03practice
+//
+//  Created by JIN on 11/1/25.
+//
+
+import UIKit
+
+class WelcomeViewController_MVC: UIViewController {
+
+    var id: String = "당근당근"
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+    }
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}
