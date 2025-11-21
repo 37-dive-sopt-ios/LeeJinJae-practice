@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		1EC08F6D2ED05B7E005FCD59 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1EC08F6C2ED05B7E005FCD59 /* SnapKit */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		1E5F94A32EBF1B1F00B71427 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -65,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EC08F6D2ED05B7E005FCD59 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +130,7 @@
 			);
 			name = "sopt-37th-practice04";
 			packageProductDependencies = (
+				1EC08F6C2ED05B7E005FCD59 /* SnapKit */,
 			);
 			productName = "sopt-37th-practice04";
 			productReference = 1E5F948C2EBF1B1D00B71427 /* sopt-37th-practice04.app */;
@@ -208,6 +214,9 @@
 			);
 			mainGroup = 1E5F94832EBF1B1D00B71427;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				1EC08F6B2ED05B7E005FCD59 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 1E5F948D2EBF1B1D00B71427 /* Products */;
 			projectDirPath = "";
@@ -591,6 +600,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1EC08F6B2ED05B7E005FCD59 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1EC08F6C2ED05B7E005FCD59 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1EC08F6B2ED05B7E005FCD59 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1E5F94842EBF1B1D00B71427 /* Project object */;
 }
